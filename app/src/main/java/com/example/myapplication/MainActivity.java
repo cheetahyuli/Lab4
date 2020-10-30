@@ -32,17 +32,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivitityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null) return;
 
         if (requestCode == 1) {
-            if (requestCode == 101) {
+            if (resultCode == 101) {
                 Bundle b = data.getExtras();
                 String str1 = b.getString("drink");
                 String str2 = b.getString("sugar");
                 String str3 = b.getString("ice");
-                tv1.setText(String.format("飲料: %s\n\n甜度:　%s\n\n冰塊：　%s\n\n",
+                tv_meal.setText(String.format("飲料: %s\n\n甜度:　%s\n\n冰塊：　%s\n\n",
                         str1, str2, str3));
             }
         }
